@@ -1,0 +1,22 @@
+{
+  "name": "@mikhin/auto-index-js",
+  "version": "1.0.0",
+  "description": "Keeps index.js files inside each BEM-block up to date.",
+  "bin": {
+    "auto-index-js": "cli.js"
+  },
+  "scripts": {
+    "lint:js": "eslint . --fix"
+  },
+  "author": "Yuri Mikhin",
+  "devDependencies": {
+    "eslint": "6.6.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-plugin-import": "2.18.2"
+  },
+  "dependencies": {
+    "chokidar": "3.4.0",
+    "commander": "4.0.1",
+    "lodash": "4.17.15"
+  }
+}
