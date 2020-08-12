@@ -86,7 +86,11 @@ function updateIndex(filePath, newFilePath) {
 
   if (indexContent.includes(relativeNewFilePath)) return undefined;
 
-  return 1;
+  const newFilePathRequiringText = `require('${relativeNewFilePath}');`;
+  const indexContentStrings = indexContent.split('\n');
+  const newFileContent = [...indexContentStrings, newFilePathRequiringText].join('\n');
+
+  return fs.writeFileSync(indexPath, newFileContent);
 }
 
 function createElementFile(filePath) {
@@ -164,8 +168,8 @@ function onDirAdd(filePath) {
 function onReady() {
   watcher
     .on('addDir', onDirAdd);
+
+  console.log('Watching is active');
 }
 
 onReady();
-
-// module.exports = () => watcher.on('ready', onReady);
