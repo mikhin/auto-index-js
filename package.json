@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "chokidar": "3.4.0",
-    "commander": "4.0.1",
-    "lodash": "4.17.15"
+    "commander": "4.0.1"
   }
 }

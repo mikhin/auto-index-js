@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const autoIndex = require('.');
+const autoIndex = require('./src');
 
 program
-  .version(require('./package').version, '-V, --version')
-  .description(require('./package').description)
+  .version(require('./package.json').version, '-V, --version')
+  .description(require('./package.json').description)
   .action(() => {
     autoIndex();
   })
