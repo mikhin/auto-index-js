@@ -12,7 +12,7 @@
 
 ## Запуск
 
-`npx @mikhin/auto-index-js`
+`npx https://github.com/mikhin/auto-index-js`
 
 ## Пример необходимой файловой структуры
 
