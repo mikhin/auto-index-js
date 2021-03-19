@@ -5,6 +5,4 @@ function getIndexFilePath(filePath) {
   return `${COMPONENTS_FOLDER_PATH}${getBlockName(filePath)}/index.js`;
 }
 
-module.exports = {
-  getIndexFilePath,
-};
+module.exports = getIndexFilePath;

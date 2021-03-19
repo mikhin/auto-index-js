@@ -6,6 +6,4 @@ function getBlockName(filePath) {
     .replace(/\/.{1,}/, '');
 }
 
-module.exports = {
-  getBlockName,
-};
+module.exports = getBlockName;

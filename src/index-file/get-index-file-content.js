@@ -13,6 +13,4 @@ function getIndexFileContent(indexFilePath) {
   return indexFileContent;
 }
 
-module.exports = {
-  getIndexFileContent,
-};
+module.exports = getIndexFileContent;

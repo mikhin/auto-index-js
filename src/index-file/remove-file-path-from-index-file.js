@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const { getBlockName } = require('../bem/get-block-name');
-const { getIndexFilePath } = require('./../index-file/get-index-file-path');
-const { getIndexFileContent } = require('./../index-file/get-index-file-content');
+const getBlockName = require('../bem/get-block-name');
+const getIndexFilePath = require('./../index-file/get-index-file-path');
+const getIndexFileContent = require('./../index-file/get-index-file-content');
 const { COMPONENTS_FOLDER_PATH } = require('./../constants');
 
 function removeFilePathFromIndexFile(filePath) {
@@ -23,6 +23,4 @@ function removeFilePathFromIndexFile(filePath) {
   }
 }
 
-module.exports = {
-  removeFilePathFromIndexFile,
-};
+module.exports = removeFilePathFromIndexFile;

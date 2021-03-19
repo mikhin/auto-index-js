@@ -8,6 +8,4 @@ function createFile(createdFilePath, createdFileContent) {
   }
 }
 
-module.exports = {
-  createFile,
-};
+module.exports = createFile;

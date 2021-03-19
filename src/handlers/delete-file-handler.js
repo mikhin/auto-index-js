@@ -1,4 +1,4 @@
-const { removeFilePathFromIndexFile } = require('../index-file/remove-file-path-from-index-file');
+const removeFilePathFromIndexFile = require('../index-file/remove-file-path-from-index-file');
 
 function onFileDelete(bemFilePath) {
   removeFilePathFromIndexFile(bemFilePath);
