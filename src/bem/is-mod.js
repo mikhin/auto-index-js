@@ -1,9 +1,7 @@
 const { ELEMENT_SEPARATOR, MOD_SEPARATOR } = require('./../constants');
 
-function isMod(filePath) {
-  return filePath.match(MOD_SEPARATOR) && !filePath.match(ELEMENT_SEPARATOR);
+function isMod(name) {
+  return name.match(MOD_SEPARATOR) && !name.match(ELEMENT_SEPARATOR);
 }
 
-module.exports = {
-  isMod,
-};
+module.exports = isMod;
