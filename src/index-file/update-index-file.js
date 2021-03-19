@@ -16,8 +16,8 @@ function updateIndexFile(createdFolderPath, createdFilePath) {
   const newFilePathRequiringText = `require('${relativeNewFilePathForIndexFile}');`;
 
   const indexContentStrings = indexFileContent.split('\n');
-  const newIndexFileContent = [...indexContentStrings, newFilePathRequiringText]
-    .join('\n');
+  const newIndexFileContent = `${[...indexContentStrings, newFilePathRequiringText]
+    .join('\n')}\n`;
 
   try {
     fs.writeFileSync(indexFilePath, newIndexFileContent);

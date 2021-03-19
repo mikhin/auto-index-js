@@ -9,12 +9,12 @@ function removeFilePathFromIndexFile(filePath) {
   const indexFilePath = getIndexFilePath(filePath);
   const indexFileContent = getIndexFileContent(indexFilePath);
 
-  const newIndexFileContent = indexFileContent
+  const newIndexFileContent = `${indexFileContent
     .split('\n')
     .filter((string) => !string.includes(filePath
       .replace(COMPONENTS_FOLDER_PATH, '')
       .replace(getBlockName(filePath), '')))
-    .join('\n');
+    .join('\n')}\n`;
 
   try {
     fs.writeFileSync(indexFilePath, newIndexFileContent);
