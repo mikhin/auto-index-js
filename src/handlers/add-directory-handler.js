@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { COMPONENTS_FOLDER_PATH, STYLE_FILE_EXTENSION } = require('../constants');
 const { updateIndexFile } = require('../index-file/update-index-file');
 const { createFile } = require('../file/create-file');
@@ -17,8 +18,10 @@ function addDirectoryHandler(createdFolderPath) {
     const creatingFilePath = `${createdFolderPath}/${selector}${STYLE_FILE_EXTENSION}`;
     const creatingFileContent = getPreparedStyleFileContent(selector);
 
-    createFile(creatingFilePath, creatingFileContent);
-    updateIndexFile(createdFolderPath, creatingFilePath);
+    if (!fs.existsSync(creatingFilePath)) {
+      createFile(creatingFilePath, creatingFileContent);
+      updateIndexFile(createdFolderPath, creatingFilePath);
+    }
   }
 }
 
