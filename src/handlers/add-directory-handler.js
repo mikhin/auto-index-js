@@ -1,3 +1,4 @@
+const os = require('os');
 const fs = require('fs');
 const { COMPONENTS_FOLDER_PATH, STYLE_FILE_EXTENSION } = require('../constants');
 const updateIndexFile = require('../index-file/update-index-file');
@@ -5,8 +6,10 @@ const createFile = require('../file/create-file');
 const isElement = require('../bem/is-element');
 const isMod = require('../bem/is-mod');
 
+const { EOL } = os;
+
 function getPreparedStyleFileContent(selector) {
-  return `.${selector} {\n  \n}`;
+  return `.${selector} {${EOL}  ${EOL}`;
 }
 
 function addDirectoryHandler(createdFolderPath) {

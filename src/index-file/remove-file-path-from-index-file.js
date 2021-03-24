@@ -1,20 +1,23 @@
 const fs = require('fs');
+const os = require('os');
 
 const getBlockName = require('../bem/get-block-name');
 const getIndexFilePath = require('./../index-file/get-index-file-path');
 const getIndexFileContent = require('./../index-file/get-index-file-content');
 const { COMPONENTS_FOLDER_PATH } = require('./../constants');
 
+const { EOL } = os;
+
 function removeFilePathFromIndexFile(filePath) {
   const indexFilePath = getIndexFilePath(filePath);
   const indexFileContent = getIndexFileContent(indexFilePath);
 
   const newIndexFileContent = `${indexFileContent
-    .split('\n')
+    .split(EOL)
     .filter((string) => !string.includes(filePath
       .replace(COMPONENTS_FOLDER_PATH, '')
       .replace(getBlockName(filePath), '')))
-    .join('\n')}\n`;
+    .join(EOL)}${EOL}`;
 
   try {
     fs.writeFileSync(indexFilePath, newIndexFileContent);
