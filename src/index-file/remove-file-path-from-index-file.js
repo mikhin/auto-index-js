@@ -13,12 +13,15 @@ function removeFilePathFromIndexFile(filePath) {
   const indexFilePath = getIndexFilePath(filePath);
   const indexFileContent = getIndexFileContent(indexFilePath);
 
+  const relativeNewFilePathForIndexFile = `.${filePath
+    .replace(COMPONENTS_FOLDER_PATH, '')
+    .replace(getBlockName(filePath), '')
+    .replace(path.sep, '')
+  }`;
+
   const newIndexFileContent = `${indexFileContent
     .split(EOL)
-    .filter((string) => !string.includes(filePath
-      .replace(COMPONENTS_FOLDER_PATH, '')
-      .replace(getBlockName(filePath), '')
-      .replace(path.sep, '')))
+    .filter((string) => !string.includes(relativeNewFilePathForIndexFile))
     .join(EOL)}${EOL}`;
 
   try {
