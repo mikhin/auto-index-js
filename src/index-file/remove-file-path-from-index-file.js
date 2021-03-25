@@ -1,5 +1,6 @@
 const fs = require('fs');
 const os = require('os');
+const path = require('path');
 
 const getBlockName = require('../bem/get-block-name');
 const getIndexFilePath = require('./../index-file/get-index-file-path');
@@ -16,7 +17,8 @@ function removeFilePathFromIndexFile(filePath) {
     .split(EOL)
     .filter((string) => !string.includes(filePath
       .replace(COMPONENTS_FOLDER_PATH, '')
-      .replace(getBlockName(filePath), '')))
+      .replace(getBlockName(filePath), '')
+      .replace(path.sep, '')))
     .join(EOL)}${EOL}`;
 
   try {

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const os = require('os');
+const path = require('path');
 
 const getBlockName = require('../bem/get-block-name');
 const getIndexFilePath = require('./../index-file/get-index-file-path');
@@ -14,13 +15,15 @@ function updateIndexFile(createdFolderPath, createdFilePath) {
 
   const relativeNewFilePathForIndexFile = `.${createdFilePath
     .replace(COMPONENTS_FOLDER_PATH, '')
-    .replace(getBlockName(createdFolderPath), '')}`;
+    .replace(getBlockName(createdFolderPath), '')
+    .replace(path.sep, '')
+  }`;
 
   const newFilePathRequiringText = `require('${relativeNewFilePathForIndexFile}');`;
 
   const indexContentStrings = indexFileContent.split(EOL);
   const newIndexFileContent = `${[...indexContentStrings, newFilePathRequiringText]
-    .join(EOL)}EOL`;
+    .join(EOL)}${EOL}`;
 
   try {
     fs.writeFileSync(indexFilePath, newIndexFileContent);
