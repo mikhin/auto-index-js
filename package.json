@@ -6,7 +6,8 @@
     "auto-index-js": "cli.js"
   },
   "scripts": {
-    "lint:js": "eslint . --fix"
+    "lint:js": "eslint . --fix",
+    "test": "jest"
   },
   "author": "Yuri Mikhin",
   "devDependencies": {
