@@ -15,7 +15,7 @@ function getPreparedStyleFileContent(selector) {
 
 function addDirectoryHandler(createdFolderPath) {
   if (isElement(createdFolderPath) || isMod(createdFolderPath)) {
-    const fileSepRegExp = new RegExp(`${path.sep}`, 'g');
+    const fileSepRegExp = new RegExp(`${path.sep === '\\' ? '\\\\' : path.sep}`, 'g');
 
     const selector = createdFolderPath
       .replace(COMPONENTS_FOLDER_PATH, '')
