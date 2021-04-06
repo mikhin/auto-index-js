@@ -13,11 +13,14 @@ function updateIndexFile(createdFolderPath, createdFilePath) {
   const indexFilePath = getIndexFilePath(createdFolderPath);
   const indexFileContent = getIndexFileContent(indexFilePath);
 
-  const relativeNewFilePathForIndexFile = `.${createdFilePath
+  const relativeNewFilePathForIndexFile = `.${path
+    .parse(createdFilePath)
+    .dir
     .replace(COMPONENTS_FOLDER_PATH, '')
     .replace(getBlockName(createdFolderPath), '')
-    .replace(path.sep, '')
-  }`;
+    .replace(new RegExp(`${path.sep === '\\' ? '\\\\' : path.sep}`), '')
+    .split(path.sep)
+    .join('/')}/${path.parse(createdFilePath).base}`;
 
   const newFilePathRequiringText = `require('${relativeNewFilePathForIndexFile}');`;
 
