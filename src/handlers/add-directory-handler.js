@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { COMPONENTS_FOLDER_PATH, STYLE_FILE_EXTENSION } = require('../constants');
 const updateIndexFile = require('../index-file/update-index-file');
-const createFile = require('../file/create-file');
+const createFile = require('../create-file');
 const isElement = require('../bem/is-element');
 const isMod = require('../bem/is-mod');
 
