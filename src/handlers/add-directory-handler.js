@@ -1,11 +1,13 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
-const { COMPONENTS_FOLDER_PATH, STYLE_FILE_EXTENSION } = require('../constants');
+
+const fileSystemPathSeparator = require('../file-system-path-separator');
 const updateIndexFile = require('../index-file/update-index-file');
 const createFile = require('../create-file');
 const isElement = require('../bem/is-element');
 const isMod = require('../bem/is-mod');
+const { COMPONENTS_FOLDER_PATH, STYLE_FILE_EXTENSION } = require('../constants');
 
 const { EOL } = os;
 
@@ -15,7 +17,7 @@ function getPreparedStyleFileContent(selector) {
 
 function addDirectoryHandler(createdFolderPath) {
   if (isElement(createdFolderPath) || isMod(createdFolderPath)) {
-    const fileSepRegExp = new RegExp(`${path.sep === '\\' ? '\\\\' : path.sep}`, 'g');
+    const fileSepRegExp = new RegExp(`${fileSystemPathSeparator}`, 'g');
 
     const selector = createdFolderPath
       .replace(COMPONENTS_FOLDER_PATH, '')

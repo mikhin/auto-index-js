@@ -2,6 +2,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
+const fileSystemPathSeparator = require('../file-system-path-separator');
 const getBlockName = require('../bem/get-block-name');
 const getIndexFilePath = require('./../index-file/get-index-file-path');
 const getIndexFileContent = require('./../index-file/get-index-file-content');
@@ -18,7 +19,7 @@ function updateIndexFile(createdFolderPath, createdFilePath) {
     .dir
     .replace(COMPONENTS_FOLDER_PATH, '')
     .replace(getBlockName(createdFolderPath), '')
-    .replace(new RegExp(`${path.sep === '\\' ? '\\\\' : path.sep}`), '')
+    .replace(new RegExp(`${fileSystemPathSeparator}`), '')
     .split(path.sep)
     .join('/')}/${path.parse(createdFilePath).base}`;
 

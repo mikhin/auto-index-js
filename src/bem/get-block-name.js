@@ -1,8 +1,10 @@
 const path = require('path');
+
+const fileSystemPathSeparator = require('../file-system-path-separator');
 const { COMPONENTS_FOLDER_PATH } = require('./../constants');
 
 function getBlockName(filePath) {
-  const bemBlockChildrenNameRegExp = new RegExp(`${path.sep === '\\' ? '\\\\' : path.sep}.{1,}`, 'g');
+  const bemBlockChildrenNameRegExp = new RegExp(`${fileSystemPathSeparator}.{1,}`, 'g');
 
   return filePath
     .replace(COMPONENTS_FOLDER_PATH, '')
