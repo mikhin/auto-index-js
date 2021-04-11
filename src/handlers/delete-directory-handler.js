@@ -1,8 +1,6 @@
 const fs = require('fs');
 const os = require('os');
-const path = require('path');
 
-const getBlockName = require('../bem/get-block-name');
 const getIndexFilePath = require('./../index-file/get-index-file-path');
 const getIndexFileContent = require('./../index-file/get-index-file-content');
 const { COMPONENTS_FOLDER_PATH, STYLE_FILE_EXTENSION } = require('./../constants');
