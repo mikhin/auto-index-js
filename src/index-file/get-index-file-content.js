@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-// eslint-disable-next-line consistent-return
 function getIndexFileContent(indexFilePath) {
   let indexFileContent = '';
 
